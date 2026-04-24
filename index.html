@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arboreto · Escola Secundária de Barcelos</title>
+  <meta name="description" content="Arboreto da Escola Secundária de Barcelos — flora, fauna e zonas biogeográficas em destaque.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LOADER
+  ═══════════════════════════════════════════ -->
+  <div id="esb-loader" role="status" aria-label="A carregar">
+
+    <div class="esb-display" id="esb-r1">
+      <span class="esb-letter"><span class="esb-letter-inner esb-solid"   data-dir="up"   data-delay="0.00">O</span></span><!--
+      --><span class="esb-gap"></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="down" data-delay="0.08">A</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"   data-dir="up"   data-delay="0.16">R</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="down" data-delay="0.22">B</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"   data-dir="up"   data-delay="0.30">O</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="down" data-delay="0.36">R</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"   data-dir="up"   data-delay="0.42">E</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="down" data-delay="0.50">T</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"   data-dir="up"   data-delay="0.56">O</span></span>
+    </div>
+
+    <div class="esb-display" id="esb-r2" style="margin-top:clamp(4px,1vw,12px);">
+      <span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="up"   data-delay="0.65">D</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"  data-dir="down" data-delay="0.72">A</span></span><!--
+      --><span class="esb-gap"></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"  data-dir="up"   data-delay="0.82">E</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-outline" data-dir="down" data-delay="0.90">S</span></span><!--
+      --><span class="esb-letter"><span class="esb-letter-inner esb-solid"  data-dir="up"   data-delay="0.98">B</span></span>
+    </div>
+
+    <div class="esb-line2" id="esb-sub">Escola Secundária de Barcelos</div>
+    <div class="esb-progress" id="esb-bar"></div>
+  </div>
+  <!-- ═══════════════════════════════════════════ -->
+
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="https://res.cloudinary.com/dpodm97yf/image/upload/v1774542000/download-removebg-preview_2_vwtxsa.png" alt="Logo Arboreto">
+    </div>
+
+    <nav class="menu">
+      <a href="index.html">Início</a>
+
+      <div class="dropdown">
+        <a onclick="toggleMenu('floraMenu')">Flora ▼</a>
+        <div id="floraMenu" class="dropdown-menu">
+          <a href="flores.html">Flores</a>
+          <a href="arvores.html">Árvores</a>
+          <a href="especies-extincao.html">Espécies em vias de extinção</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a onclick="toggleMenu('faunaMenu')">Fauna ▼</a>
+        <div id="faunaMenu" class="dropdown-menu">
+          <a href="insetos.html">Insetos</a>
+          <a href="anfibios.html">Anfíbios</a>
+          <a href="mamiferos.html">Mamíferos</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a onclick="toggleMenu('zonasMenu')">Zonas ▼</a>
+        <div id="zonasMenu" class="dropdown-menu">
+          <a href="atlantico.html">Atlântico</a>
+          <a href="oro-atlantico.html">Oro-atlântico</a>
+          <a href="termo-atlantico.html">Termo-atlântico</a>
+          <a href="iberico.html">Ibérico</a>
+          <a href="eu-mediterranico.html">Eu-mediterrânico</a>
+        </div>
+      </div>
+
+      <a href="galeria.html">Galeria</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/secundaria.barcelos" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/escola_do_rio/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-img" src="https://www.cm-barcelos.pt/wp-content/uploads/2024/09/arboretoestudo-de-caso-scaled.jpg" alt="Copa de árvores do arboreto vista de baixo">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">O nosso <em>arboreto</em> vivo.</h1>
+      <p class="hero-desc">
+        Um santuário de biodiversidade onde a flora, a fauna e os
+        ecossistemas portugueses ganham espaço para respirar, crescer e ensinar.
+      </p>
+      <div class="hero-buttons">
+        <a href="arvores.html" class="btn-primary">Explorar a flora →</a>
+        <a href="sobre.html" class="btn-outline">Sobre o projeto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELO 3D -->
+  <section class="model-3d-section">
+    <h2>Explore o Arboreto em 3D</h2>
+    <p>Mova o mouse para rodar o modelo e use a roda do rato para aproximar/afastar</p>
+    <div id="modelo-3d-container">
+      <div id="loading-message">A carregar modelo 3D...</div>
+      <div id="controlos-hint">
+        <span>🖱️ <strong>Esquerdo</strong> — andar</span>
+        <span>🖱️ <strong>Direito</strong> — rodar</span>
+        <span>🖱️ <strong>Roda</strong> — zoom</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre-section">
+    <div class="sobre-inner">
+      <div>
+        <p class="sobre-eyebrow">Sobre o tema</p>
+        <h2 class="sobre-title">Onde a ciência encontra a paisagem.</h2>
+        <p class="sobre-text">
+          O Arboreto da Escola Secundária de Barcelos é um espaço educativo e contemplativo onde se reúnem
+          espécies características da flora portuguesa. Cada árvore conta uma história — sobre solo, clima,
+          latitude, e sobre nós.
+        </p>
+        <p class="sobre-text">
+          Este projeto nasce da vontade de aproximar alunos, professores e comunidade de uma natureza que
+          muitas vezes passa despercebida. Aqui, observar é aprender; tocar é compreender.
+        </p>
+        <dl class="sobre-stats">
+          <div class="sobre-stat">
+            <dt>Zonas biogeográficas</dt>
+            <dd>5</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="sobre-img-wrap">
+        <img src="https://archello.s3.eu-central-1.amazonaws.com/images/2020/07/09/zBarcelos--14-of-15-.1594284459.2049.jpg" alt="Arboreto">
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Contactos</h3>
+        <p><strong>Agrupamento de Escolas de Barcelos:</strong><br>
+        Avenida João Paulo II<br>
+        4750-304 Barcelos</p>
+        <p>Tlf: 253 809 360<br>
+        Tlm: 937 705 160<br>
+        Fax: 253 809 368</p>
+        <a href="formulario.html" class="btn-footer">Formulário de Contacto</a>
+      </div>
+      <div class="footer-column">
+        <h3>Direção do Agrupamento de Escolas de Barcelos</h3>
+        <p><a href="mailto:aeb@aebarcelos.pt">aeb@aebarcelos.pt</a></p>
+        <h3>Serviços Administrativos:</h3>
+        <p><a href="mailto:secretaria@aebarcelos.pt">secretaria@aebarcelos.pt</a></p>
+        <h3>Coordenadas GPS:</h3>
+        <p>41°31'43"N 8°36'48"W</p>
+      </div>
+      <div class="footer-column">
+        <h3>Links Úteis:</h3>
+        <ul class="footer-links">
+          <li><a href="#">Direção Geral da Educação - DGE</a></li>
+          <li><a href="#">Direção Geral dos estabelecimentos Escolares - DGEstE</a></li>
+          <li><a href="#">Instituto de Avaliação Educativa - IAVE</a></li>
+          <li><a href="#">Direção Geral do Ensino Superior - DGES</a></li>
+          <li><a href="#">Agência Nacional para a Qualificação e o Ensino Profissional - ANQEP</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Feito por:</h3>
+        <ul class="footer-links">
+          <li><a href="#">Bruno Dias</a></li>
+        </ul>
+        <div class="social-icons" style="margin-top:10px;">
+          <a href="https://www.instagram.com/webrun_d.s/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="modelo-3d.js"></script>
+
+  <script>
+    function toggleMenu(menuId) {
+      document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        if (menu.id !== menuId) menu.classList.remove('show');
+      });
+      document.getElementById(menuId).classList.toggle('show');
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.menu a')) {
+        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+          menu.classList.remove('show');
+        });
+      }
+    };
+  </script>
+
+</body>
+</html>
