@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anfíbios - Arboreto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="https://res.cloudinary.com/dpodm97yf/image/upload/v1774542000/download-removebg-preview_2_vwtxsa.png" alt="Logo Arboreto">
+  </div>
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <div class="dropdown">
+      <a onclick="toggleMenu('floraMenu')">Flora ▼</a>
+      <div id="floraMenu" class="dropdown-menu">
+        <a href="flores.html">Flores</a>
+        <a href="arvores.html">Árvores</a>
+        <a href="especies-extincao.html">Espécies em vias de extinção</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a onclick="toggleMenu('faunaMenu')">Fauna ▼</a>
+      <div id="faunaMenu" class="dropdown-menu">
+        <a href="insetos.html">Insetos</a>
+        <a href="anfibios.html">Anfíbios</a>
+        <a href="mamiferos.html">Mamíferos</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a onclick="toggleMenu('zonasMenu')">Zonas ▼</a>
+      <div id="zonasMenu" class="dropdown-menu">
+        <a href="atlantico.html">Atlântico</a>
+        <a href="oro-atlantico.html">Oro-atlântico</a>
+        <a href="termo-atlantico.html">Termo-atlântico</a>
+        <a href="iberico.html">Ibérico</a>
+        <a href="eu-mediterranico.html">Eu-mediterrânico</a>
+      </div>
+    </div>
+    <a href="galeria.html">Galeria</a>
+    <a href="sobre.html">Sobre</a>
+  </nav>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/secundaria.barcelos" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/escola_do_rio/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <img class="page-hero-img" src="gallery/anfibios-1.jpg" alt="Anfíbios">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow"><span></span> Fauna</p>
+    <h1>Anfíbios</h1>
+    <p class="page-hero-desc">Salamandras, rãs e tritões — sentinelas silenciosas da qualidade dos nossos ecossistemas.</p>
+  </div>
+</section>
+<section class="sobre-section">
+  <div class="sobre-inner">
+    <div>
+      <p class="sobre-eyebrow">Sobre o tema</p>
+      <h2 class="sobre-title">Bioindicadores do equilíbrio.</h2>
+      <p class="sobre-text">Os anfíbios são extremamente sensíveis às alterações ambientais. A sua presença no arboreto é sinal de água limpa, solo saudável e vegetação preservada. O arboreto abriga diversas espécies, incluindo rãs, sapos e salamandras.</p>
+      <p class="sobre-text">Pequenos charcos e zonas húmidas foram criados para apoiar as suas fases reprodutivas, contribuindo para o repovoamento de espécies em declínio. Os anfíbios são fundamentais para manter o equilíbrio ecológico das zonas húmidas do arboreto.</p>
+      <dl class="highlights"><div class="highlight"></div><div class="highlight"></div></dl>
+    </div>
+    <div class="sobre-img-wrap">
+      <img src="gallery/anfibios-2.jpg" alt="Bioindicadores do equilíbrio.">
+    </div>
+  </div>
+</section>
+<section class="gallery-section">
+  <div class="gallery-header">
+    <div>
+      <p class="gallery-eyebrow">Galeria</p>
+      <h2>Galeria de anfíbios</h2>
+      <p class="gallery-subtitle">Fotografias dos anfíbios observados no arboreto.</p>
+    </div>
+    <p>2 fotografias</p>
+  </div>
+  <div class="gallery-grid">
+    <figure class="gallery-item ">
+      <img src="gallery/anfibios-1.jpg" alt="Anfíbios">
+      <figcaption>Anfíbios · imagem 1</figcaption>
+    </figure>
+    <figure class="gallery-item ">
+      <img src="gallery/anfibios-2.jpg" alt="Anfíbios">
+      <figcaption>Anfíbios · imagem 2</figcaption>
+    </figure>
+    <figure class="gallery-item wide"><div class="gallery-placeholder"><span>foto</span></div></figure>
+    <figure class="gallery-item large"><div class="gallery-placeholder"><span>foto</span></div></figure>
+    <figure class="gallery-item "><div class="gallery-placeholder"><span>foto</span></div></figure>
+    <figure class="gallery-item tall"><div class="gallery-placeholder"><span>foto</span></div></figure>
+    <figure class="gallery-item "><div class="gallery-placeholder"><span>foto</span></div></figure>
+    <figure class="gallery-item "><div class="gallery-placeholder"><span>foto</span></div></figure>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Contactos</h3>
+      <p><strong>Agrupamento de Escolas de Barcelos:</strong><br>Avenida João Paulo II<br>4750-304 Barcelos</p>
+      <p>Tlf: 253 809 360<br>Tlm: 937 705 160<br>Fax: 253 809 368</p>
+      <a href="formulario.html" class="btn-footer">Formulário de Contacto</a>
+    </div>
+    <div class="footer-column">
+      <h3>Direção do Agrupamento de Escolas de Barcelos</h3>
+      <p><a href="mailto:aeb@aebarcelos.pt">aeb@aebarcelos.pt</a></p>
+      <h3>Serviços Administrativos:</h3>
+      <p><a href="mailto:secretaria@aebarcelos.pt">secretaria@aebarcelos.pt</a></p>
+      <h3>Coordenadas GPS:</h3>
+      <p>41°31'43"N 8°36'48"W</p>
+    </div>
+    <div class="footer-column">
+      <h3>Links Úteis:</h3>
+      <ul class="footer-links">
+        <li><a href="#">Direção Geral da Educação - DGE</a></li>
+        <li><a href="#">Direção Geral dos estabelecimentos Escolares - DGEstE</a></li>
+        <li><a href="#">Instituto de Avaliação Educativa - IAVE</a></li>
+        <li><a href="#">Direção Geral do Ensino Superior - DGES</a></li>
+        <li><a href="#">Agência Nacional para a Qualificação e o Ensino Profissional - ANQEP</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Feito por:</h3>
+      <ul class="footer-links"><li><a href="#">Bruno Dias</a></li></ul>
+      <div class="social-icons" style="margin-top:10px;">
+        <a href="https://www.instagram.com/webrun_d.s/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(menuId) {
+  document.querySelectorAll('.dropdown-menu').forEach(menu => {
+    if (menu.id !== menuId) menu.classList.remove('show');
+  });
+  document.getElementById(menuId).classList.toggle('show');
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.menu a')) {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+  }
+}
+</script>
+</body>
+</html>
