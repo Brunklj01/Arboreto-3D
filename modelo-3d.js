@@ -53,23 +53,20 @@ window.addEventListener('DOMContentLoaded', function () {
     fillLight.position.set(-30, 20, -20);
     scene.add(fillLight);
 
-    // 6️⃣ ORBIT CONTROLS — botão esquerdo orbita, direito tratado manualmente
+    // 6️⃣ ORBIT CONTROLS
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping  = true;
     controls.dampingFactor  = 0.06;
     controls.minDistance    = 5;
     controls.maxDistance    = 500;
-    controls.maxPolarAngle  = Math.PI / 2.05;  // não deixa ir abaixo do chão
-    controls.enablePan      = false;           // pan feito à mão com botão direito
+    controls.maxPolarAngle  = Math.PI / 2.05;
+    controls.enablePan      = false;
     controls.mouseButtons   = {
         LEFT:   THREE.MOUSE.ROTATE,
-        MIDDLE: THREE.MOUSE.DOLLY,}
-controls.enablePan = false;
-controls.enableRotate = true;;
-        ;
+        MIDDLE: THREE.MOUSE.DOLLY,
+    };
 
-    // 7️⃣ NAVEGAÇÃO "ANDAR" COM BOTÃO DIREITO
-    // Arrastar com botão direito desloca a câmara + target no plano horizontal
+    // 7️⃣ NAVEGAÇÃO COM BOTÃO DIREITO
     let isRightDragging = false;
     let rightPrevX = 0;
     let rightPrevY = 0;
@@ -78,88 +75,48 @@ controls.enableRotate = true;;
         return controls.object.position.distanceTo(controls.target) * 0.0012;
     }
 
-renderer.domElement.addEventListener('pointerdown', function (e) {
-    if (e.button === 2) {
-        isRightDragging = true;
-        rightPrevX = e.clientX;
-        rightPrevY = e.clientY;
+    renderer.domElement.addEventListener('pointerdown', function (e) {
+        if (e.button === 2) {
+            isRightDragging = true;
+            rightPrevX = e.clientX;
+            rightPrevY = e.clientY;
+            renderer.domElement.setPointerCapture(e.pointerId);
+            e.preventDefault();
+        }
+    });
 
-        renderer.domElement.setPointerCapture(e.pointerId);
-        e.preventDefault();
-    }
-});
-renderer.domElement.addEventListener('pointermove', function (e) {
-    if (!isRightDragging) return;
-
-    const dx = e.clientX - rightPrevX;
-    const dy = e.clientY - rightPrevY;
-
-    rightPrevX = e.clientX;
-    rightPrevY = e.clientY;
-
-    const speed = panSpeed();
-
-    const forward = new THREE.Vector3();
-    camera.getWorldDirection(forward);
-    forward.y = 0;
-    forward.normalize();
-
-    const right = new THREE.Vector3();
-    right.crossVectors(forward, new THREE.Vector3(0, 1, 0)).normalize();
-
-    const move = new THREE.Vector3();
-    move.addScaledVector(right, -dx * speed);
-    move.addScaledVector(forward, dy * speed);
-
-    camera.position.add(move);
-    controls.target.add(move);
-});
-renderer.domElement.addEventListener('pointerup', function (e) {
-    if (e.button === 2) {
-        isRightDragging = false;
-        renderer.domElement.releasePointerCapture(e.pointerId);
-    }
-});
-
-    renderer.domElement.addEventListener('mousemove', function (e) {
+    renderer.domElement.addEventListener('pointermove', function (e) {
         if (!isRightDragging) return;
-
         const dx = e.clientX - rightPrevX;
         const dy = e.clientY - rightPrevY;
         rightPrevX = e.clientX;
         rightPrevY = e.clientY;
-
         const speed = panSpeed();
-
         const forward = new THREE.Vector3();
         camera.getWorldDirection(forward);
         forward.y = 0;
         forward.normalize();
-
         const right = new THREE.Vector3();
         right.crossVectors(forward, new THREE.Vector3(0, 1, 0)).normalize();
-
         const move = new THREE.Vector3();
-        move.addScaledVector(right,   -dx * speed);
-        move.addScaledVector(forward,  dy * speed);
-
+        move.addScaledVector(right, -dx * speed);
+        move.addScaledVector(forward, dy * speed);
         camera.position.add(move);
         controls.target.add(move);
-        controls.update();
     });
 
-renderer.domElement.addEventListener('mouseup', function (e) {
-    if (e.button === 2) {
-        isRightDragging = false;
-        renderer.domElement.releasePointerCapture(e.pointerId);
-    }
-});
+    renderer.domElement.addEventListener('pointerup', function (e) {
+        if (e.button === 2) {
+            isRightDragging = false;
+            renderer.domElement.releasePointerCapture(e.pointerId);
+        }
+    });
 
     renderer.domElement.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     });
 
-    // Suporte touch: dois dedos = pan
+    // Suporte touch
     let touchPrev = null;
     renderer.domElement.addEventListener('touchstart', function (e) {
         if (e.touches.length === 2) {
@@ -177,7 +134,6 @@ renderer.domElement.addEventListener('mouseup', function (e) {
         const dx = cx - touchPrev.x;
         const dy = cy - touchPrev.y;
         touchPrev = { x: cx, y: cy };
-
         const speed = panSpeed();
         const forward = new THREE.Vector3();
         camera.getWorldDirection(forward);
@@ -185,7 +141,6 @@ renderer.domElement.addEventListener('mouseup', function (e) {
         forward.normalize();
         const right = new THREE.Vector3();
         right.crossVectors(forward, new THREE.Vector3(0, 1, 0)).normalize();
-
         const move = new THREE.Vector3();
         move.addScaledVector(right,   -dx * speed * 1.5);
         move.addScaledVector(forward,  dy * speed * 1.5);
@@ -200,58 +155,41 @@ renderer.domElement.addEventListener('mouseup', function (e) {
 
     // 8️⃣ LOADER DO MODELO
     const loader = new THREE.GLTFLoader();
-    const dracoLoader = new THREE.DRACOLoader();
-    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-    loader.setDRACOLoader(dracoLoader);
 
     loader.load(
-        'ARBORETO FINAL.glb',
+        'https://github.com/Brunklj01/Arboreto-3D/releases/download/v1.0/ARBORETO.FINAL.glb',
 
         function (gltf) {
             const model = gltf.scene;
-
             model.traverse(function (node) {
                 if (node.isMesh) {
                     node.castShadow    = true;
                     node.receiveShadow = true;
                 }
             });
-
             scene.add(model);
 
-            // AUTO-ENQUADRAMENTO
             const box    = new THREE.Box3().setFromObject(model);
             const size   = box.getSize(new THREE.Vector3());
             const center = box.getCenter(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.z);
 
-            // Centrar o modelo na origem
             model.position.sub(center);
 
-            // CÂMARA: vista oblíqua de cima, perto do arboreto
-            // Posição inicial: ligeiramente à frente e acima do centro,
-            // olhando para baixo em ângulo — a pessoa vê logo o arboreto
-            const camHeight  = maxDim * 0.50;   // altura — mais baixo = mais perto do chão
-            const camDist    = maxDim * 0.55;   // distância frontal
-            const camOffsetX = maxDim * 0.08;   // leve desvio lateral para perspetiva
+            const camHeight  = maxDim * 0.50;
+            const camDist    = maxDim * 0.55;
+            const camOffsetX = maxDim * 0.08;
 
-            camera.position.set(
-                camOffsetX,
-                camHeight,
-                camDist    // Z positivo = câmara "à frente" do modelo, a olhar para dentro
-            );
+            camera.position.set(camOffsetX, camHeight, camDist);
 
-            // Target: ligeiramente acima do chão do modelo
             const groundCenter = new THREE.Vector3(0, (box.min.y - center.y) + size.y * 0.05, 0);
             controls.target.copy(groundCenter);
-
             camera.lookAt(controls.target);
             controls.update();
 
             if (loadingMessage) loadingMessage.style.display = 'none';
             container.classList.add('loaded');
 
-            // Sombras
             sunLight.shadow.camera.near   = 1;
             sunLight.shadow.camera.far    = maxDim * 4;
             sunLight.shadow.camera.left   = sunLight.shadow.camera.bottom = -maxDim;
@@ -298,28 +236,20 @@ renderer.domElement.addEventListener('mouseup', function (e) {
 
     console.log('CONTROLOS: Esquerdo = Orbitar | Direito = Andar | Roda = Zoom');
 });
- 
 
-//11 Loader
-
+// LOADER ANIMAÇÃO
 (function () {
   'use strict';
-
   var loader = document.getElementById('esb-loader');
   var bar    = document.getElementById('esb-bar');
   var sub    = document.getElementById('esb-sub');
   var page   = document.getElementById('esb-page');
-
-  /* duração total do loader em ms */
-  var TOTAL = 5600;
+  var TOTAL  = 5600;
 
   function init() {
-    /* arranca a barra */
     requestAnimationFrame(function () {
       bar.classList.add('esb-run');
     });
-
-    /* anima cada letra */
     var letters = document.querySelectorAll('.esb-letter-inner');
     letters.forEach(function (el) {
       var delay = parseFloat(el.getAttribute('data-delay') || 0);
@@ -328,13 +258,9 @@ renderer.domElement.addEventListener('mouseup', function (e) {
       el.style.setProperty('--dur',   '0.7s');
       el.classList.add(dir === 'up' ? 'esb-anim-up' : 'esb-anim-down');
     });
-
-    /* subtítulo aparece após a última letra */
     setTimeout(function () {
       sub.classList.add('esb-vis');
     }, 1200);
-
-    /* saída: wipe para cima */
     setTimeout(function () {
       loader.classList.add('esb-wipe');
       setTimeout(function () {
