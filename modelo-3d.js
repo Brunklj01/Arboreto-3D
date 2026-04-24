@@ -157,7 +157,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const loader = new THREE.GLTFLoader();
 
 loader.load(
-    'https://drive.usercontent.google.com/download?id=1BJpKKWqvwsAZSBuDTWWw82XFzcQXILxT&export=download&confirm=t',
+    'ARBORETO FINAL.glb',
 
         function (gltf) {
             const model = gltf.scene;
