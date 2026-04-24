@@ -156,8 +156,8 @@ window.addEventListener('DOMContentLoaded', function () {
     // 8️⃣ LOADER DO MODELO
     const loader = new THREE.GLTFLoader();
 
-    loader.load(
-        'https://github.com/Brunklj01/Arboreto-3D/releases/download/v1.0/ARBORETO.FINAL.glb',
+loader.load(
+    'https://drive.usercontent.google.com/download?id=1BJpKKWqvwsAZSBuDTWWw82XFzcQXILxT&export=download&confirm=t',
 
         function (gltf) {
             const model = gltf.scene;
